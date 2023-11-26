@@ -12,7 +12,9 @@ just me [@MohamedLifa](https://www.github.com/mohamed-lifa7)
 
 **Language**: TypeScript
 
-**Styling**: Tailwind CSS with Shadcn UI.## To-Do List
+**Styling**: Tailwind CSS with Shadcn UI.
+
+## To-Do List
 
 - [ ] Create a dedicated page for displaying accurate prayer times based on the specific location.
 
