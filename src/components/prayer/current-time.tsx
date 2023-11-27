@@ -19,6 +19,8 @@ export const CurrentTime = () => {
     hour12: false,
   });
   return (
-    <span className="text-2xl font-bold text-primary">{formattedTime}</span>
+    <span className="text-2xl font-bold text-primary" suppressHydrationWarning>
+      {formattedTime}
+    </span>
   );
 };

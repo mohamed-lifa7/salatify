@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 export default async function Page({ params }: { params: { slug: string } }) {
+  console.log("params: ", params);
   const data = await getChapters({
     params: {
       books: true,

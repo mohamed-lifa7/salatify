@@ -103,9 +103,6 @@ export default async function PrayersSection() {
         currentTimeInSeconds > maghribTimeInSeconds,
     },
   ];
-  console.log("currentTimeInSeconds : ", currentTimeInSeconds);
-  console.log("ishaTimeInSeconds : ", ishaTimeInSeconds);
-  console.log("fajrTimeInSeconds : ", fajrTimeInSeconds);
   return (
     <section className="container space-y-4">
       <PrayerInfoPanel geolocation={geolocation} timings={data} />

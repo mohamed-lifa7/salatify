@@ -27,23 +27,27 @@ export async function getHadiths({
   searchParams,
 }: {
   searchParams?: {
+    book?: string;
     pagination?: string;
     chapter?: string;
     hadithNumber?: number;
   };
 }) {
   try {
-    let apiUrl = "https://hadithapi.com/api/hadiths";
+    let apiUrl = "https://hadithapi.com/api/hadiths?";
 
-    apiUrl += `${
-      searchParams?.chapter ? "&chapter=" + searchParams?.chapter : ""
+    apiUrl += `${searchParams?.book ? "book=" + searchParams?.book + "&" : ""}${
+      searchParams?.chapter ? "chapter=" + searchParams?.chapter + "&" : ""
     }${
       searchParams?.hadithNumber
-        ? "&hadithNumber=" + searchParams?.hadithNumber
+        ? "hadithNumber=" + searchParams?.hadithNumber + "&"
         : ""
     }${
-      searchParams?.pagination ? "&pagination=" + searchParams?.pagination : ""
-    }?apiKey=$2y$10$W3TkNt2U2wlTVZXhew4g7utt6J26CPhYmwkr1N0yUYf4jBdh3`;
+      searchParams?.pagination
+        ? "pagination=" + searchParams?.pagination + "&"
+        : ""
+    }&apiKey=$2y$10$W3TkNt2U2wlTVZXhew4g7utt6J26CPhYmwkr1N0yUYf4jBdh3`;
+    console.log("searchParams : ", searchParams);
     const response = await fetch(apiUrl);
     const result = (await response.json()) as Promise<HadithsProps>;
     return result;

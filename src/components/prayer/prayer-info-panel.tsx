@@ -18,7 +18,7 @@ const PrayerInfoPanel = ({
 }) => {
   return (
     <>
-      <Card className="space-y-4">
+      <Card className="space-y-4" suppressHydrationWarning>
         <CardHeader className="flex items-center justify-between md:flex-row">
           <CardTitle>{geolocation.city} Prayer times.</CardTitle>
           <CardDescription>{timings.date.readable}</CardDescription>
