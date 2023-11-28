@@ -168,3 +168,13 @@ export interface HadithsProps {
     data: Hadith[];
   };
 }
+
+export interface QiblaProps {
+  code: number;
+  status: string;
+  data: {
+    latitude: number;
+    longitude: number;
+    direction: number;
+  };
+}
