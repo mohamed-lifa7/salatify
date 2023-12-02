@@ -1,36 +1,48 @@
 const NAVITEMS = [
   {
-    title: "Home",
-    href: "/",
-  },
-  {
     title: "Prayer Times",
-    href: "/prayer-times",
+    href: "/prayers",
   },
   {
     title: "Allah Names",
     href: "/allah-names",
   },
   {
-    title: "Ramadan",
-    href: "/ramadan",
+    title: "Sunnah",
+    href: "/sunnah",
   },
   {
-    title: "Dua",
-    href: "/dua",
+    title: "Qibla",
+    href: "/qibla",
   },
-  {
-    title: "Hadith",
-    href: "/hadith",
-  },
-  {
-    title: "Quran",
-    href: "/quran",
-  },
-  {
-    title: "Islamic Calendar",
-    href: "/calendar",
-  },
+  // {
+  //   title: "Quran",
+  //   href: "/quran",
+  // },
+  // {
+  //   title: "Islamic Calendar",
+  //   href: "/calendar",
+  // },
+  // {
+  //   title: "Ramadan",
+  //   href: "/ramadan",
+  // },
+  // {
+  //   title: "Dua",
+  //   href: "/dua",
+  // },
+
+  // {
+  //   title: "Muwatta Malik",
+  //   href: "/sunnah/malik",
+  // },
+  // {
+  //   title: "Sunan ad-Darimi",
+  //   href: "/sunnah/darimi",
+  // },
+];
+
+const sunnahNavItems = [
   {
     title: "Sahih al-Bukhari",
     href: "/sunnah/sahih-bukhari",
@@ -55,17 +67,9 @@ const NAVITEMS = [
     title: "Sunan Ibn Majah",
     href: "/sunnah/ibn-e-majah",
   },
-  // {
-  //   title: "Muwatta Malik",
-  //   href: "/sunnah/malik",
-  // },
   {
     title: "Musnad Ahmad",
     href: "/sunnah/musnad-ahmad",
   },
-  // {
-  //   title: "Sunan ad-Darimi",
-  //   href: "/sunnah/darimi",
-  // },
 ];
-export { NAVITEMS };
+export { NAVITEMS, sunnahNavItems };
