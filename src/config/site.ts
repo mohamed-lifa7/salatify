@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const siteConfig: Metadata = {
-  metadataBase: new URL("https://salaatify.vercel.app/"),
+  metadataBase: new URL("https://salatify.vercel.app/"),
 
   title: {
-    default: "Salaatify",
-    template: "%s | Salaatify",
+    default: "Salatify",
+    template: "%s | Salatify",
   },
 
-  manifest: "https://salaatify.vercel.app/manifest.json",
+  manifest: "https://salatify.vercel.app/manifest.json",
 
-  applicationName: "Salaatify",
+  applicationName: "Salatify",
 
   creator: "Mohamed Lifa",
 
@@ -24,14 +24,14 @@ export const siteConfig: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 
   description:
-    "Salaatify provides Islamic prayer times, resources for Ramadan, dua supplications, and more.",
+    "Salatify provides Islamic prayer times, resources for Ramadan, dua supplications, and more.",
 
   openGraph: {
-    title: "Salaatify",
+    title: "Salatify",
     description:
-      "Salaatify provides Islamic prayer times, resources for Ramadan, dua supplications, and more.",
-    url: new URL("https://salaatify.vercel.app/"),
-    siteName: "Salaatify",
+      "Salatify provides Islamic prayer times, resources for Ramadan, dua supplications, and more.",
+    url: new URL("https://salatify.vercel.app/"),
+    siteName: "Salatify",
     images: ["/og-image.jpg"],
     locale: "en_US",
     type: "website",
@@ -50,17 +50,17 @@ export const siteConfig: Metadata = {
   },
 
   twitter: {
-    title: "Salaatify",
+    title: "Salatify",
     creator: "@LifaSeddik",
     card: "summary_large_image",
-    images: ["https://salaatify.vercel.app/og-image.jpg"],
+    images: ["https://salatify.vercel.app/og-image.jpg"],
   },
 
   keywords: ["Islam", "Muslim", "Prayer", "Salah", "Ramadan", "Dua"],
 };
 
 export const links = {
-  github: "https://github.com/Mohamed-lifa7/Salaatify",
+  github: "https://github.com/Mohamed-lifa7/Salatify",
   twitter: "https://twitter.com/LifaSeddik",
   portfolio: "https://mohamed-lifa7.vercel.app",
 };
