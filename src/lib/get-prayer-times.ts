@@ -1,7 +1,7 @@
 import type { GeolocationProps, TimezoneProps } from "@/types";
 import { convertToLink } from "./utils";
 
-interface PrayerJsonRes {
+export interface PrayerJsonRes {
   code: number;
   status: string;
   data: TimezoneProps;
