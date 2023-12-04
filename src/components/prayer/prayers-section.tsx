@@ -3,11 +3,15 @@ import { getTimingsByCity, loadGeolocation } from "@/lib/get-prayer-times";
 import PrayerCard from "./prayer-card";
 import type { GeolocationProps, PrayerCardProps, TimezoneProps } from "@/types";
 import PrayerInfoPanel from "./prayer-info-panel";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { toast } from "../ui/use-toast";
+import { Loader } from "lucide-react";
 
 export default function PrayersSection() {
   const [geolocation, setGeolocation] = useState<GeolocationProps | null>(null);
   const [data, setData] = useState<TimezoneProps | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,16 +21,30 @@ export default function PrayersSection() {
 
         const prayerData = await getTimingsByCity(geo);
         setData(prayerData);
+        setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching prayer data:", error);
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Error fetching prayer data try again",
+        });
+        setIsLoading(false);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     void fetchData();
   }, []);
-  if (!geolocation || !data) {
-    return <div>Loading...</div>;
-  }
+  if (!geolocation || !data)
+    return (
+      <section className="container grid place-content-center space-y-4">
+        <p className="flex items-center">
+          <span>Loading</span> <Loader className="mx-4 h-4 w-4 animate-spin" />
+        </p>
+      </section>
+    );
   const FajrTime = new Date(
     `${new Date().toDateString()} ${data.timings.Fajr}`,
   );
@@ -125,13 +143,15 @@ export default function PrayersSection() {
     },
   ];
   return (
-    <section className="container space-y-4">
-      <PrayerInfoPanel geolocation={geolocation} timings={data} />
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
-        {prayers.map((prayer) => (
-          <PrayerCard key={prayer.name} {...prayer} />
-        ))}
-      </div>
-    </section>
+    <Suspense fallback={<div>Loading...</div>}>
+      <section className="container space-y-4">
+        <PrayerInfoPanel geolocation={geolocation} timings={data} />
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
+          {prayers.map((prayer) => (
+            <PrayerCard key={prayer.name} {...prayer} />
+          ))}
+        </div>
+      </section>
+    </Suspense>
   );
 }
